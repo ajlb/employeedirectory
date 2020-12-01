@@ -22,7 +22,9 @@ function EmployeeTable(props) {
         if (filterState !== '') {
             filteredRecords = props.employees
                 .filter(employeeRecord => {
-                    return employeeRecord.name.first.toLowerCase().startsWith(filterState)
+                    return employeeRecord.name.first.startsWith(filterState)
+                        || employeeRecord.name.last.startsWith(filterState)
+                        || employeeRecord.name.first.toLowerCase().startsWith(filterState)
                         || employeeRecord.name.last.toLowerCase().startsWith(filterState);
                 });
         }
@@ -72,10 +74,15 @@ function EmployeeTable(props) {
                 </Row>
             {/* <HeaderRow> */}
                 <ul className="list-group">
-                {
+                    {
+                        sortedEmployees.map(employeeRecord =>
+                            <EmployeeList employeeRecord={employeeRecord} key={employeeRecord.id.value} />
+                        )
+                    }
+                    {/* {
                         employeeRecords.map(employeeRecord =>
                             <EmployeeList employeeRecord={employeeRecord} key={employeeRecord.id.value} />)
-                    }
+                    } */}
             {/* </HeaderRow> */}
             </ul>
         </Container>

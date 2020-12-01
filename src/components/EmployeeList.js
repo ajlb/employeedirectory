@@ -1,6 +1,6 @@
 import React from "react";
 import Thumbnail from "./Thumbnail";
-import { Container, Row, Col } from "./Grid";
+import { Row, Col } from "./Grid";
 
 export function EmployeeList(props){
     // console.log(props.employeeRecord.picture.thumbnail);
@@ -12,20 +12,20 @@ export function EmployeeList(props){
 
     return (
         <li className="list-group-item">
-            <Row>
-                <Col size="sm-3">
-                    <Thumbnail src={thumbnail} />
-                </Col>
-                <Col size="sm-3">
-                    <p>{props.employeeRecord.name.first} {props.employeeRecord.name.last}</p>
-                </Col>
-                <Col size="sm-3">
-                    <p>{props.employeeRecord.phone}</p>
-                </Col>
-                <Col size="sm-3">
-                    <p>{dateOfBirth}</p>
-                </Col>
-            </Row>
+                <Row>
+                    <Col size="sm-3">
+                        <Thumbnail src={thumbnail} />
+                    </Col>
+                    <Col size="sm-3">
+                        <p>{props.employeeRecord.name.first} {props.employeeRecord.name.last}</p>
+                    </Col>
+                    <Col size="sm-3">
+                        <p>{props.employeeRecord.phone}</p>
+                    </Col>
+                    <Col size="sm-3">
+                        <p>{dateOfBirth}</p>
+                    </Col>
+                </Row>
         </li>
     )
 }
